@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for example project
+# Scrapy settings for so_image project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,16 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'example'
 
-SPIDER_MODULES = ['example.spiders']
-NEWSPIDER_MODULE = 'example.spiders'
+
+BOT_NAME = 'so_image'
+
+SPIDER_MODULES = ['so_image.spiders']
+NEWSPIDER_MODULE = 'so_image.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'example (+http://www.yourdomain.com)'
+#USER_AGENT = 'so_image (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +49,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'example.middlewares.ExampleSpiderMiddleware': 543,
+#    'so_image.middlewares.SoImageSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'example.middlewares.ExampleDownloaderMiddleware': 543,
+#    'so_image.middlewares.SoImageDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,9 +66,12 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'example.pipelines.ExamplePipeline': 300,
-#}
+# ITEM_PIPELINES = {
+#    'so_image.pipelines.SoImagePipeline': 1,
+# }
+
+ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1,}
+IMAGES_STORE='download_images'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
